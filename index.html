@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Beautiful Pakistan</title>
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&display=swap");
+            @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+            @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+        * 
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body
+        {
+            margin: 0px;
+            padding: 0px;
+        }
+        /* Scroll Bar */
+        ::-webkit-scrollbar 
+        {
+            width: 15px;
+        }
+        ::-webkit-scrollbar-track 
+        {
+            box-shadow: inset 0 0 5px lightslategray;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb 
+        {
+            background-color: #fde02f;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover 
+        {
+            background-color: gray;
+        }
+        /* Nav Bar */
+        .nav-bar 
+        {
+            display: flex;
+            width: 100%;
+            height: 70px;
+            background-color: #fde65e;
+            box-shadow: 1px 1px 5px lightslategray;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            padding: 45px;
+        }
+        span
+        {
+            color: white;
+        }
+        .logo 
+        {
+            flex: 1;
+            font-size: 40px;
+            padding: 20px;
+            font-family: Satisfy;
+        }
+        ul.menu 
+        {
+            flex: 1;
+            display: flex;
+            flex-flow: row wrap;
+        }
+        .menu li 
+        {
+            flex: 1;
+            list-style-type: none;
+            font-size: 18px;
+            font-family: "Barlow Condensed";
+            text-align: center;
+        }
+        .menu li a 
+        {
+            text-decoration: none;
+            color: #000;
+            text-transform: capitalize;
+        }
+        .menu li a:hover 
+        {
+            color: gray;
+            text-decoration: none;
+        }
+        /* Banner */
+        .banner 
+        {
+            background-image: url(Images/landscape.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            /* overflow: hidden; */
+            width: 100%;
+            height: 100vh;
+            text-align: center;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .banner::before 
+        {
+            content: "";
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.2);
+            /*background-size: 100%;*/
+        }
+        .banner-text-item 
+        {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .banner-heading 
+        {
+            flex: 1;
+        }
+        .banner-heading h1 
+        {
+            font-size: 100px;
+            font-weight: normal;
+            color: #fde02f;
+            font-family: Satisfy;
+        }
+        .banner-text-item .form 
+        {
+            flex: 1;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            width: 70%;
+            padding: .5% 1%;
+        }
+        .banner-text-item input,
+        .banner-text-item .date,
+        .banner-text-item .book 
+        {
+            padding: 15px;
+            margin-right: 10px;
+            font-size: 18px;
+            font-family: Roboto;
+            border-radius: 5px;
+            outline: 0;
+            border: none;
+        }
+        .banner-text-item input 
+        {
+            width: 50%;
+            flex: 2;
+        }
+        .banner-text-item .date 
+        {
+            width: 20%;
+            flex: 1;
+        }
+        .banner-text-item .book 
+        {
+            width: 20%;
+            flex: 1;
+        }
+        .banner-text-item .book 
+        {
+            text-decoration: none;
+            color: #000;
+            text-transform: capitalize;
+            padding: 15px;
+            cursor: pointer;
+            background-color: #fde02f;
+            font-size: 16px;
+            font-weight: normal;
+            font-family: "Barlow Condensed";
+            width: 20%;
+            transition: transform .4s;
+        }
+        .book:hover
+        {
+            background-color: rgba(255, 255, 255, 0.2);;
+            cursor: pointer;
+        }
+        /* About Us */
+        .about
+        {
+            width: 100%;
+            padding: 100px 0px;
+            background-color: #191919;
+        }
+        .about img
+        {
+            height: auto;
+            width: 430px;
+        }
+        .about-text
+        {
+            width: 550px;
+        }
+        .main
+        {
+            width: 1130px;
+            max-width: 95%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .about-text h2
+        {
+            color: #fde02f;
+            font-size: 75px;
+            text-transform: capitalize;
+            margin-bottom: 20px;
+        }
+        .about-text h5
+        {
+            color: #fde02f;
+            letter-spacing: 2px;
+            font-size: 22px;
+            text-transform: capitalize;
+            margin-bottom: 25px;
+        }
+        .about-text p
+        {
+            color: #fde65e;
+            letter-spacing: 1px;
+            line-height: 28px;
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+        .about-text label
+        {
+            color: white;
+            letter-spacing: 1px;
+            line-height: 28px;
+            font-size: 18px;
+            margin-bottom: 45px;
+        }
+        button
+        {
+            background-color: #fde02f;
+            color: black;
+            text-decoration: none;
+            border: 2px solid transparent;
+            font-weight: bold;
+            padding: 13px 30px;
+            border-radius: 30px;
+            transition: .4s;
+        }
+        button:hover
+        {
+            background-color: transparent;
+            border: 2px solid #fde02f;
+            cursor: pointer;
+        }
+         /* Stories  */
+        .stories
+        {
+            background-image: url(Images/sunset.jpg);
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            padding: 100px 0px;
+        }
+        .title h2
+        {
+            color: #fde02f;
+            font-size: 75px;
+            width: 1130px;
+            margin: 30px auto;
+            text-align: center;
+        }
+        .box
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+        }
+        .card
+        {
+            background-color: rgba(0, 0, 0, 0.2);
+            height: 365px;
+            width: 335px;
+            padding: 20px 35px;
+            background-size: cover;
+            border-radius: 20px;
+            margin: 15px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        h5
+        {
+            color: #fde02f;
+            font-size: 23px;
+            margin-bottom: 15px;
+        }
+        .content p
+        {
+            color: white;
+            font-size: 16px;
+            line-height: 27px;
+            margin-bottom: 25px;
+        }
+        .card .button
+        {
+            background-color: #fde02f;
+            color: black;
+            text-decoration: none;
+            border: 2px solid transparent;
+            font-weight: bold;
+            padding: 13px 30px;
+            border-radius: 30px;
+            transition: .4s;
+        }
+        .card .button:hover
+        {
+            background-color: transparent;
+            border: 2px solid #fde02f;
+            cursor: pointer;
+        }
+        /* Guidelines */
+        .guide
+        {
+            background-image: url(Images/sunset1.jpeg);
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            padding: 100px 0px;
+        }
+        .guide-text h3 
+        {
+            color: #fde02f;
+            font-size: 75px;
+            width: 1130px;
+            margin: 30px auto;
+            text-align: center;
+        }
+        .box1
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+        }
+        .car1
+        {
+            background-color: rgba(0, 0, 0, 0.2);
+            height: 365px;
+            width: 335px;
+            padding: 20px 35px;
+            background-size: cover;
+            border-radius: 20px;
+            margin: 15px;
+            position: relative;
+            text-align: center;
+        }
+        h3
+        {
+            color: #fde02f;
+            font-size: 23px;
+            margin-bottom: 15px;
+        }
+        .car1 img 
+        {
+            max-width: 90%;
+            height: 200px;
+            border-radius: 8px;
+        } 
+        .car1-box p 
+        {
+            display: flex;
+            flex-flow: row;
+            background-color: transparent;
+            font-size: 18px;
+            font-family: Roboto;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .car1 .button
+        {
+            background-color: #fde02f;
+            color: black;
+            text-decoration: none;
+            border: 2px solid transparent;
+            font-weight: bold;
+            padding: 13px 30px;
+            border-radius: 30px;
+            transition: .4s;
+        }
+        .car1 .button:hover
+        {
+            background-color: transparent;
+            border: 2px solid #fde02f;
+            cursor: pointer;
+        }
+        /* Contact Us */
+        .contact
+        {
+            width: 100%;
+            height: 290px;
+            background-color: #191919;
+            display: flex;
+            align-items: center;
+            flex-direction: column ;
+            justify-content: center;
+        }
+        .contact p
+        {
+            color: #fde02f;
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+        .contact .button-two
+        {
+            background-color: #fde02f;
+            color: black;
+            text-decoration: none;
+            border: 2px solid transparent;
+            font-weight: bold;
+            padding: 13px 30px;
+            border-radius: 30px;
+            transition: .4s;
+        }
+        .contact .button-two:hover
+        {
+            background-color: transparent;
+            border: 2px solid #fde02f;
+            cursor: pointer;
+        }
+        /* Footer */
+        .footer 
+        {
+            color: white;
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background-image: url(Images/lambo.jpg);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .footer h2
+        {
+            color: #fde02f;
+            font-size: 30px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .footer p
+        {
+            font-size: 20px;
+            width: 500px;
+            text-align: center;
+            line-height: 26px;
+            margin-bottom: 10px;
+        }
+        .link
+            {
+                display: flex;
+            }
+        .link a
+        {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fde02f;
+            border-radius: 50px;
+            margin: 22px 10px;
+            color: black;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        .link a:hover
+        {
+            transform: scale(1.3);
+            transition: .3s;
+        }
+        .end
+        {
+            position: absolute;
+            color: #fde02f;
+            bottom: 50px;
+            font-size: 20px;
+        }
+        
+        /* Responsive */
+        @media all and (max-width: 1172px) 
+        {
+            .banner-text-item .form 
+            {
+                display: flex;
+                flex-flow: column;
+                justify-content: center;
+                align-items: center;
+                width: 50%;
+            }
+            .banner-text-item .form input,
+            .banner-text-item .form .date,
+            .banner-text-item .form a 
+            {
+                flex: 1;
+                margin-bottom: 5px;
+                font-size: 14px;
+            }
+
+            .banner-text-item .form input 
+            {
+                width: 60%;
+            }
+
+            .banner-text-item .form .date 
+            {
+                width: 30%;
+            }
+
+            .banner-text-item .form .book 
+            {
+                width: 10%;
+                font-size: 14px;
+            }
+
+            .banner-heading h1 
+            {
+                font-size: 60px;
+            }
+        }
+        @media all and (max-width: 1414px) 
+        {
+            .banner-text-item .form input 
+            {
+                width: 40%;
+            }
+            
+            .banner-text-item .form .date 
+            {
+                width: 30%;
+            }
+
+            .banner-text-item .form .book
+            {
+                width: 20%;
+                font-size: 14px;
+            }
+        }
+        @media all and (max-width: 942px) 
+        {
+            .nav-bar 
+            {
+                display: flex;
+                flex-flow: column wrap;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: auto;
+                text-align: center;
+                position: static;
+            }
+
+            .logo 
+            {
+                flex: 1;
+                font-size: 30px;
+                margin: 10px auto;
+                font-family: Satisfy;
+                color: #fde02f;
+            }
+
+            .nav-bar ul
+            {
+                display: none;
+            }
+            
+            .nav-bar ul li {
+            flex: 1;
+            margin-bottom: 5px;
+            font-size: 14px;
+            }
+            .guide-text 
+            {
+                margin-top: 200px;
+            }
+        }
+        @media all and (max-width: 928px) 
+        {
+            .banner .form input,
+            a 
+            {
+                font-size: 12px;
+            }
+        }
+        @media all and (max-width: 1173px) 
+        {
+            .banner .form 
+            {
+                background-color: transparent;
+            }
+        }
+        </style>
+    </head>
+    <body>
+        <!-- Nav Bar -->
+        <section class="nav-bar">
+            <div class="logo">Beautiful Pakistan</div>
+                <ul class="menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#About Us">About Us</a></li>
+                    <li><a href="#Travel Stories">Travel Stories</a></li>
+                    <li><a href="#Tour Guidelines">Tour Guidelines</a></li>
+                    <li><a href="photo gallery.html">Photo Gallery</a></li>
+                    <li><a href="#Contact Us">Contact Us</a></li>
+                </ul>
+            </div>
+        </section>
+        <!-- Banner -->
+        <section class="banner">
+            <div class="banner-text-item">
+                <div class="banner-heading">
+                    <h1>Find your Next tour!</h1>
+                </div>
+                <form class="form">
+                    <input type="text" list="mylist" placeholder="Where would you like to go?">
+                    <datalist id="mylist">
+                        <option>Gigit Baltistan</option>
+                        <option>Kumrat</option>
+                        <option>Chitral</option>
+                        <option>Naran Kaghan</option>
+                        <option>Kashmir</option>
+                        <option>Galiyat</option>
+                        <option>Abbottabad</option>
+                    </datalist>
+                    <input type="date" class="date">
+                    <a href="#" class="book">Book</a>
+                </form>
+            </div>
+        </section>
+        <!-- About Us -->
+        <section id="About Us">
+            <div class="about">
+                <div class="main">
+                    <img src="Images/mani.jpeg">
+                    <div class="about-text">
+                        <h2>About Us</h2>
+                        <h5>Beautiful <span>Pakistan</span></h5> 
+                        <p>We Capture the Beauty Of Pakistan Through Our Lens. Pakistan, one of the most Beautiful Countries in the World.
+                            We travel across Pakistan Specially in Nothern Areas to show The real Beauty of Pakistan to the World. 
+                            We showcase the beauty of Pakistan, as, it is one of the best Places for visitors to visit.
+                            We Provide,</p>
+                        <label><input type="checkbox" checked> Best Place Recommendations.</label><br>
+                        <label><input type="checkbox" checked> Best Tour Guidance.</label><br>
+                        <label><input type="checkbox" checked> Great Travel Stories.</label><br>
+                        <label><input type="checkbox" checked> Photo Galleries.</label><br>
+                        <button type="button">About Us</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Travel Stories -->
+        <section id="Travel Stories">
+            <div class="stories">
+                <div class="title">
+                    <h2>Travel Stories</h2>
+                </div>
+                <div class="box">
+                    <div class="card">
+                        <h5>Kalam Valley</h5>
+                        <div class="content">
+                            <p>Kumrat Valley, The Heaven like place located in upper Dir, KPK. Kumrat Valley is famous for it's extra-ordinary 
+                                beauty and views, as, it is in between High Range Mountains which are covered with High Snow almost throughout the year. 
+                            </p>
+                            <p style="text-align: center;">
+                            <a class="button" href="stories.html">Read More</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h5>Galiyat</h5>
+                        <div class="content">
+                            <p>Galiyat, known for it's beautiful views and classy weather located in North-East KPK. Galiyat is one of the most 
+                                most widely visited places in Pakistan. Galiyat has many attractive hiking tracks leading to many beautiful Locations/tops views Specially in Winter Season.                                </p>
+                            </p>
+                            <p style="text-align: center;">
+                            <a class="button" href="stories.html">Read More</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h5>Naran Kaghan</h5>
+                        <div class="content">
+                            <p>Naran Kaghan, One of the Most Beautiful Places in Pakistan located in Northern Punjab. Naran Kaghan has many Beautiful
+                                sceneries and places that people visists in summer season, as, in winter Naran Kaghan in fully Covered in Snow. 
+                            </p>
+                            <p style="text-align: center;">
+                            <a class="button" href="stories.html">Read More</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tour Guidelines -->
+        <section id="Tour Guidelines">
+            <section class="guide">
+                <div class="guide-text">
+                    <h3>Tour Guidelines</h3>
+                </div>
+                <div class="box1">
+                    <div class="car1">
+                        <div class="zoom-img">
+                            <div class="img-card">
+                                <img src="Images/galiyat3.jpg">
+                            </div>
+                        </div>
+                        <div class="text">
+                            <h3>Galiyat Route</h3>
+                            <div class="car1-box">
+                                <p class="time">3 Days Trip</p>
+                                <p class="location"> Galiyat, KPK</p>
+                                <p style="text-align: center;">
+                                    <a class="button" href="photo gallery.html">Read More</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="car1">
+                        <div class="zoom-img">
+                            <div class="img-card">
+                                <img src="Images/kumrat5.jpg">
+                            </div>
+                        </div>
+                        <div class="text">
+                            <h3>Kumrat Valley</h3>
+                            <div class="car1-box">
+                                <p class="time">5 Days Trip</p>
+                                <p class="location"> Kumrat valley, KPK</p>
+                                <p style="text-align: center;">
+                                    <a class="button" href="photo gallery.html">Read More</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="car1">
+                        <div class="zoom-img">
+                            <div class="img-card">
+                                <img src="Images/naran2.jpg">
+                            </div>
+                        </div>
+                        <div class="text">
+                            <h3>Naran Valley</h3>
+                            <div class="car1-box">
+                                <p class="time">1 Week Trip</p>
+                                <p class="location"> Naran Valley</p>
+                                <p style="text-align: center;">
+                                    <a class="button" href="photo gallery.html">Read More</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+            
+        <!-- Contact Us -->
+        <section id="Contact Us">
+            <div class="contact">
+                <p>Conatct Us for best places to visit and guidelines.</p>
+                <a class="button-two" href="contact.html">Contact Us</a>
+            </div>
+            <!-- Footer -->
+            <div class="footer">
+                <h2>Beautiful Pakistan</h2>
+                <p>For More details about Tours and Travels, please reach-us out at any the links given below or fill the form in Contact us page.</p>
+                <div class="link">
+                    <a href="usman.aamir404@gmail.com" target="_blank"><i class="fa-solid fa-g"></i></a>
+                    <a href="https://www.linkedin.com/in/muhammad-usman-aamir" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <!-- <a href="+92 3438146190" target="_blank"><i class="fa-solid fa-phone"></i></a> -->
+                    <a href="https://github.com/MuhammadUsman-10" target="_blank"><i class="fa-brands fa-github"></i></a>
+                </div>
+                <p class="end">CopyRight By Beautiful Pakistan</p>
+            </div>
+        </section>
+    </body>
+</html>
